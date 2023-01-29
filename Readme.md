@@ -24,12 +24,12 @@ it will be greatly appreciated if you mention developers name (Reza Kamali) on y
 
 ## How to use?
 
-1* Clone project : ``` git clone https://github.com/MRGando/Moffin.git ```
-2* Start ``` Apache ``` and ``` mySQL ``` in Xampp
-3* Create your database ( structure has mentioned below )
-4* Replace ``` /database/connetion.js ``` information
-5\* Open terminal in Moffin folder and run this code : ``` npm i; npm start ```
-6\* Open browser and search : ``` localhost:3000 ```
+1* Clone project : ``` git clone https://github.com/MRGando/Moffin.git ```    
+2* Start ``` Apache ``` and ``` mySQL ``` in Xampp    
+3* Create your database ( structure has mentioned below )    
+4* Replace ``` /database/connetion.js ``` information    
+5\* Open terminal in Moffin folder and run this code : ``` npm i; npm start ```    
+6\* Open browser and search : ``` localhost:3000 ```    
 
 ## Requirements
 
