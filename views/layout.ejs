@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/meta.ejs') %>
+    <script src="/functions/tools.js"></script>
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <%- style %>
+  </head>
+  <body>
+    <% if( user !== 'undefined'){ %>
+    <span class="wallpaper">
+      <% if(user.banner && user.banner != '') { %>
+      <img class="wallpaper" src="<%= user.banner %>" />
+      <% } else { %>
+      <img class="wallpaper" src="/uploads/wallpapers/1.jpg" />
+      <% } %>
+    </span>
+    <% } %> <%- body %>
+    <script src="/functions/selectors.js"></script>
+    <%- script %>
+  </body>
+</html>

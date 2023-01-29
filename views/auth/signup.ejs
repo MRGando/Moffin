@@ -1,0 +1,56 @@
+
+  <head>
+    <title>moffin | signUp</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="side_content">
+          <div class="inner">
+            <span class="title">Sign Up</span>
+            <span class="context"
+              >Create a free account on moffin and have your own desk, let us
+              know if there is any issue.
+            </span>
+            <a class="feedback" href="#">feedback</a>
+          </div>
+        </div>
+        <div class="form_content">
+          <form action="/auth/signup" method="post">
+            <div class="one box">
+              <label for="input">Name</label>
+              <input
+                value="<%= typeof name !== 'undefined' ? name : '' %>"
+                name="name"
+                type="text"
+                class="input"
+                autofocus />
+            </div>
+            <div class="two box">
+              <label for="input">Email</label>
+              <input
+                value="<%= typeof email !== 'undefined' ? email : '' %>"
+                name="email"
+                type="text"
+                class="input" />
+            </div>
+            <div class="three box">
+              <label for="input">Password</label>
+              <input
+                value="<%= typeof password !== 'undefined' ? password : '' %>"
+                name="password"
+                type="password"
+                class="input pass"
+                autocomplete="new-password" />
+              <img
+                class="pass_visible"
+                src="/icons/invisible.svg"
+                alt="visiblity eye" />
+            </div>
+            <input type="submit" value="signup" />
+            <a class="account_help" href="/auth/login">have an account?</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>

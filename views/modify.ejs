@@ -1,0 +1,26 @@
+<h1>Modify folders</h1>
+<div class="mod_container">
+  <div class="remove_folder_box">
+    <form action="/modify/folders/remove" method="post">
+      <label for="folder">Select folder to remove</label>
+      <% if(typeof folders !== 'undefined'){ %>
+      <select name="folder" id="folder" required>
+        <% folders.forEach(folder => { %>
+        <option value="<%= folder.folderID %>"><%= folder.folderName %></option>
+        <% }) %>
+      </select>
+      <% } else{ %>
+      <select name="" id="" disabled></select>
+      <% } %>
+      <button type="submit">Remove</button>
+    </form>
+  </div>
+  <div class="add_folder_box">
+    <form action="/modify/folders/add" method="post">
+      <label for="folder">Type folder name to add</label>
+      <input type="text" name="folder" id="folder" / placeholder="e.g private"
+      required>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</div>

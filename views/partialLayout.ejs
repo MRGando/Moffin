@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/meta.ejs') %>
+    <link rel="stylesheet" href="/styles/partialLayout.css" />
+    <title><%= typeof event != 'undefined' ? event.qoute : title %></title>
+    <%- style %>
+  </head>
+  <body>
+    <% if(typeof errors != 'undefined'){ %>
+    <ul class="logBox">
+      <% errors.forEach(error => { %>
+      <li>
+        <img class="alert_icon" src="/icons/Alert.svg" alt="Alert icon" />
+        <span class="error"><%= error %></span>
+        <span class="alert_close_btn">X</span>
+      </li>
+      <% }) %>
+    </ul>
+    <% } %> <% if(typeof msg != 'undefined') { %>
+    <p class="log"><%= msg %></p>
+    <% } %>
+    <a href="/"><div class="back">&laquo;</div></a>
+    <%- body %> <%- include('./partials/loading.ejs') %>
+    <script>
+      class linkup {
+        constructor() {}
+
+        //* link extractor method
+        static ext_link(cls, linkName, options) {
+          let text = document.querySelectorAll(cls);
+          //* repeats the functionality for each of the containers
+          text.forEach((item) => {
+            const extract_link = (input, cls) => {
+              const link = input.split(" ");
+              let newLine = [];
+              link.forEach((word) => {
+                //* check if word includes any sign
+                if (
+                  word.includes("http://") ||
+                  word.includes("https://") ||
+                  word.includes("www.") ||
+                  word.includes(".com") ||
+                  word.includes(".gov") ||
+                  word.includes(".co") ||
+                  word.includes(".style") ||
+                  word.includes(".ir") ||
+                  word.includes(".us")
+                ) {
+                  console.log(word);
+                  let filterd = `${word}`
+                    .replace("http", "")
+                    .replace("://", "")
+                    .replace("https", "")
+                    .replace("www.", "");
+
+                  //* conditions for different endpoints
+                  let srcStart =
+                    options.src === true
+                      ? `<a href='http://${filterd}'>`
+                      : typeof options.src == "string"
+                      ? `<a href='${options.src}'>`
+                      : null;
+                  let srcEnd = `</a>`;
+
+                  newLine.push(
+                    `${
+                      options.src ? srcStart : null
+                    } <span href="google.com" class="${linkName}">${
+                      options.upperCase === true
+                        ? filterd.toUpperCase()
+                        : filterd
+                    }</span> ${options.src ? srcEnd : null}`
+                  );
+                } else {
+                  newLine.push(word);
+                }
+              });
+
+              let result = newLine.join(" ");
+              console.log(result);
+              return result;
+            };
+            //* printing result
+            item.innerHTML = extract_link(item.innerHTML);
+          });
+        }
+      }
+    </script>
+    <%- script %>
+  </body>
+</html>

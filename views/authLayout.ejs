@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/meta.ejs') %>
+    <link rel="stylesheet" href="/styles/authLayout.css">
+    <link rel="stylesheet" href="/styles/authStyles.css">
+    <%- style %>
+  </head>
+  <body>
+    <% if(typeof errors != 'undefined'){ %> 
+        <ul class="logBox">
+          <% errors.forEach(error => { %>
+            <li><img class="alert_icon" src="/icons/Alert.svg" alt="Alert icon" />
+              <span class="error"><%= error %></span>
+              <span class="alert_close_btn">X</span></li>
+          <% }) %>
+        </ul>
+             <% } %>
+             <% if(typeof msg != 'undefined') { %>
+              <p class="log"><%= msg %></p>
+              <% } %>
+    <%- include('./partials/loading.ejs') %> <%- body %> <%- script %>
+<!-- <div class="feedback_panel">
+    <span class="title">Your message will be <span class="highlight">anonymous</span></span>
+    <div class="feedback_box">
+<form action="/feeds" method="post">
+    <div class="box">
+        <label for="name">name</label>
+    <input type="text" name="name" id="name">
+    </div>
+    <div class="box">
+        <label for="name">email</label>
+    <input type="text" name="email" id="email">
+    </div>
+    <div class="box">
+        <label for="message">message</label>
+    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+    </div>
+    <button type="submit">Send</button>
+</form>
+    </div> -->
+</div>
+    </div>
+    <script src="/js/authEffects.js"></script>
+  </body>
+</html>

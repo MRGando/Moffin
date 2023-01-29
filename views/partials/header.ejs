@@ -1,0 +1,19 @@
+<div class="header">
+  <div class="info">
+    <div class="profilePic">
+      <img class="setting_icon" src="/icons/settings.svg" alt="setting" />
+      <img
+        src="<%= user.Avatar && user.Avatar != null ? user.Avatar : '/profile.jpg' %>"
+        alt="profile picture" />
+    </div>
+    <div class="information">
+      <p class="user">Hi, <%= user.Name %></p>
+      <p class="email"><%= user.Email %></p>
+    </div>
+  </div>
+  <form action="/logout" method="get">
+    <button class="logoutButton" type="submit" class="logout">
+      <img class="logoutIcon" src="/logout.svg" alt="logout button" />
+    </button>
+  </form>
+</div>

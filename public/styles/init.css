@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@font-face {
+  font-family: "english";
+  src: url("/fonts/english.TTF");
+}
+@font-face {
+  font-family: "farsi";
+  src: url("/fonts/BYekan.ttf");
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  font-family: "Montserrat", "farsi", sans-serif;
+  scrollbar-color: rgba(49, 45, 77, 0.5) rgba(29, 26, 45, 0.5);
+}
+.empty {
+  user-select: none;
+}
+a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+input,
+button,
+textarea {
+  font-family: "Montserrat", "farsi", sans-serif;
+}
+
+button,
+input[type="submit"] {
+  background-color: #242139;
+  border: none;
+  color: white;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  transition: 0.1s;
+  cursor: pointer;
+}
+/* loading.ejs styles */
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #312d4d;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  justify-content: center;
+}
+.dot {
+  width: 50px;
+  height: 50px;
+  background-color: #1d1a2d;
+  animation: loadot 3s infinite backwards;
+  border-radius: 30px;
+  position: relative;
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  background-color: #1d1a2d;
+  width: 20px;
+  height: 20px;
+  top: -30px;
+  border-radius: 50px;
+}
+
+@keyframes loadot {
+  10% {
+    border-radius: 30px;
+  }
+  50% {
+    border-radius: 10px;
+  }
+  100% {
+    transform: rotatez(360deg);
+    border-radius: 30px;
+  }
+}

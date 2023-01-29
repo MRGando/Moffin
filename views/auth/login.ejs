@@ -1,0 +1,34 @@
+  <head>
+    <title>moffin | login</title>
+  </head>
+  <body>
+    <div class="container">
+     <div class="content">
+      <div class="side_content">
+        <div class="inner">
+          <span class="title">Login</span>
+          <span class="context">if you already have a moffin just log in and enjoy, need an account ? don't worry fill a simple form and Wollah 🥳 </span>
+          <br><a class="feedback" href="#">feedback</a>
+        </div>
+      </div>
+      <div class="form_content form_content_login">
+        <form action="/auth/login" method="post">
+          <div class="two box">
+              <label for="input">Email</label>
+            <input name="email" type="text" class="input" autofocus/>
+          </div>
+          <div class="three box">
+            <label for="input">Password</label>
+            <input name="password" type="password" class="input pass" autocomplete="new-password"/>
+            <img
+            class="pass_visible"
+            src="/icons/invisible.svg"
+            alt="visiblity eye" />
+          </div>
+          <button type="submit">login</button>
+          <a class="account_help" href="/auth/signup">need an account?</a>
+        </div>
+      </form>
+      </div>
+     </div>
+</body>

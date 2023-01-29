@@ -1,0 +1,87 @@
+    <title>Dashboard - <%= user.Name %></title>
+  <%- include('./partials/header.ejs') %>
+
+  <div class="container">
+    
+  <% if(typeof events != 'undefined'){ %>
+    <% if(events.length == 0){ %>
+      <div class="empty">
+        <span>There is no Note :)</span>
+        <span class="intro_text"
+          >Click on
+          <img class="intro_image" width="30" src="/add.svg" /> to add first
+          one.</span>
+      </div>
+          <% } %> 
+    <ul>
+      <% events.forEach(event => { %>
+      <li class="item" title="Folder: <%= typeof event.folderName != 'null' ? event.folderName : 'none' %>">
+        <div class="priority" data-color="<%= event.themeColor %>"></div><span class="title c-title"> <%= event.title %></span>
+        <span class="content c-content"> <%= event.content %></span>
+        <span class="date"> <%= event.date_ %></span>
+
+        <div class="item_buttons">
+          <a href="/note/details/<%= event.eventId%>"><button class="detail faint_color"><img class="edit-icon" src="/icons/invisible.svg" alt="see icon"></button></button></a>
+          <a href="/note/edit/<%= event.eventId %>"><button class="detail faint_color"><img class="edit-icon" src="/icons/edit.svg" alt="edit icon"></button></button></a>
+          <a href="/note/del/<%= event.eventId %>"
+            ><button class="deleteButton detail faint_color"><img class="edit-icon" src="/icons/trash.svg" alt="delete icon"></button></a
+          >
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+  
+ <a href="/note/add"><div class="addButton">
+    <img class="addButtonImage" src="/add.svg" alt="add new note" />
+    </div></a> 
+<% } %>
+<div class="setting_page">
+ <div class="setting_content">
+ <button class="delete_account">Delete Account</button>
+  <span class="close_btn setting_close_btn">X</span>
+  <label  for="banner">
+    <div class="banner">
+      <% if(user.banner && user.banner != '') { %>
+        <img class="banner_small" src="<%= user.banner %>">
+        <% } else{ %>
+         <img class="banner_small" src="/uploads/wallpapers/1.jpg">
+         <% } %>
+    </div>
+  </label>
+    <form action="/setting/banner" method="post"  enctype="multipart/form-data">
+    <input type="file" name="banner" id="banner" accept="image/x-png,image/gif,image/jpeg" onchange="this.form.submit()" />
+    </form>
+  <div class="profilePic">
+    <label for="avatar">
+      <div class="profile_parent">
+        <img class="profile"
+    src="<%= user.Avatar && user.Avatar != null ? user.Avatar : '/profile.jpg' %>"
+    alt="profile picture" />
+      </div>
+    </label>
+    <div class="setting_profileMenu">
+      <form
+        action="/setting/avatar"
+        method="post"
+        enctype="multipart/form-data">
+        <input
+          type="file"
+          name="avatar"
+          id="avatar"
+          accept="image/x-png,image/gif,image/jpeg"
+          onchange="this.form.submit()" />
+      </form>
+    </div>
+
+<div class="information">
+<form action="/setting" method="post">
+  <input onchange="this.value = this.value.trim()" class="input" type="text" name="name" value="<%= user.Name %>" placeholder="Name" required>
+  <input class="input disabled" type="text" value="<%= user.Email %>" disabled>
+<button type="submit">Save</button>
+</form>
+</div>
+</div>
+ </div>
+</div>
+<script src="/js/index.js"></script>

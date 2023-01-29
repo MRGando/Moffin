@@ -1,0 +1,32 @@
+<div class="container">
+  <img src="" alt="">
+  <div class="details">
+    <div class="upper">
+        <div class="title"><%= event.title %></div><div class="buttons">
+            <a href="/note/edit/<%= event.eventId %>"><button class="detail faint_color"><img class="edit_icon" src="/icons/edit.svg" alt="edit icon"></button></button></a>
+                  <a href="/note/del/<%= event.eventId %>"
+                    ><button class="deleteButton detail faint_color"><img class="edit_icon" src="/icons/trash.svg" alt="delete icon"></button></a
+                  >
+          </div>
+    </div>
+      <div class="date"><img src="/icons/time.svg" alt="date icon"><%= event.date_ %></div>
+      <div class="folder_name"><img src="/icons/folder.svg" alt="folder icon"><%= typeof event.folderName !== 'object' ? event.folderName : 'no folder' %></div>
+      <div class="content check"><%= event.content %></div>
+    </div>
+    <% if( user !== 'undefined'){ %>
+      <span class="wallpaper">
+        <% if(user.banner && user.banner != '') { %>
+        <img class="wallpaper" src="<%= user.banner %>" />
+        <% } else { %>
+        <img class="wallpaper" src="/uploads/wallpapers/1.jpg" />
+        <% } %>
+      </span>
+      <% } %>
+      
+      <script>
+              linkup.ext_link(".check", "link", {
+        upperCase: false,
+        src: true,
+      });
+      </script>
+</div>

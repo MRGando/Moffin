@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="/styles/admin.css" />
+<title>Dashboard - <%= user.Name %></title>
+
+<%- include('./partials/header.ejs') %>
+
+<div class="container">
+  <div class="general">
+    <span class="title">DB info</span>
+    <span class="hover">number of users: <%= users.length %> </span>
+    <span class="hover">number of events: <%= events.length %> </span>
+    <span class="hover">Admins: <%= admins.length %></span>
+  </div>
+  <div class="setting">
+    <span class="title">Setting</span>
+    <!-- <form action="/config/<%= user.id %>" method="post"> -->
+    <button name="del-users" class="delEvents" data-id="<%= user.id %>">
+      delete all events
+    </button>
+    <!-- </form> -->
+    <button class="delUsers" data-id="<%= user._id %>">delete all users</button>
+  </div>
+</div>
+
+<script>
+  const titles = document.querySelectorAll(".c-title");
+  const contents = document.querySelectorAll(".c-content");
+  const items = document.querySelectorAll(".item");
+  const deleteUsersButton = document.querySelector(".delUsers");
+  const deleteEventsButton = document.querySelector(".delEvents");
+
+  //shorter texts
+  function make_short(array, value) {
+    array.forEach((each) => {
+      each.innerHTML =
+        each.innerHTML.length > value
+          ? each.innerHTML.slice(0, value) + " ..."
+          : each.innerHTML;
+    });
+  }
+  function action(act, button) {
+    let data = { id: button.dataset.id };
+    const res = fetch("http://localhost:3000/config", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id: data.id }),
+    });
+    alert(data.id);
+  }
+  make_short(titles, 35);
+  make_short(contents, 90);
+  //adding border to tasks
+  items.forEach((item) => {
+    item.style.borderBottom = `6px solid ${item.dataset.color}`;
+  });
+
+  deleteUsersButton.addEventListener("click", () => {
+    const confirm = window.confirm(
+      "Do you want to delete Users ? (it will be permament)"
+    );
+    if (confirm) action("users", deleteUsersButton);
+  });
+  deleteEventsButton.addEventListener("click", () => {
+    const confirm = window.confirm(
+      "Do you want to delete Events ? (it will be permament)"
+    );
+    if (confirm) action("events", deleteEventsButton);
+  });
+</script>

@@ -1,0 +1,43 @@
+<div class="detail-container">
+  <h1>Edit Note</h1>
+  <form action="/note/edit/<%= id %>" method="post">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      value="<%= event.title %>"
+      placeholder="Title ..." />
+    <label for="content">Content</label>
+    <textarea
+      name="content"
+      cols="40"
+      rows="10"
+      id="content"
+      placeholder="Content ...">
+<%= event.content %></textarea>
+    <span class="folder_box"
+      ><label for="folder_label">Folder</label>
+      <% if(typeof folders !== 'undefined'){ %>
+      <select name="folderID" id="folder" required>
+        <option value="no folder">no folder</option>
+        <% folders.forEach(folder => { %>
+          <%  if(event.themeColor == folder.folderColor){ %>
+          <option value="<%= folder.folderID %>" selected><%= folder.folderName %></option>
+          <% }else{ %>
+          <option value="<%= folder.folderID %>"><%= folder.folderName %></option>
+          <%  } %>
+          <%= folder.folderName %>
+        </option>
+        <% }) %>
+      </select>
+      <% } else{ %>
+      <select name="" id="">
+        <option value="no folder">no folder</option>
+      </select>
+      <% } %>
+      <a href="/modify/folders"> <img class="edit_folders_button" src="/icons/edit.svg" role="button" alt="edit folders"></a>
+    </span>
+    <button id="saveButton" type="submit">Save</button>
+  </form>
+</div>
