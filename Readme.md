@@ -24,12 +24,12 @@ it will be greatly appreciated if you mention developers name (Reza Kamali) on y
 
 ## How to use?
 
-1* Clone project : git clone https://github.com/MRGando/Moffin.git
-2* Start Apache and mySQL in Xampp
+1* Clone project : ``` git clone https://github.com/MRGando/Moffin.git ```
+2* Start ``` Apache ``` and ``` mySQL ``` in Xampp
 3* Create your database ( structure has mentioned below )
-4* Replace /database/connetion.js information
-5\* Open terminal in Moffin folder and run this code : npm i; npm start
-6\* Open browser and search : localhost:3000
+4* Replace ``` /database/connetion.js ``` information
+5\* Open terminal in Moffin folder and run this code : ``` npm i; npm start ```
+6\* Open browser and search : ``` localhost:3000 ```
 
 ## Requirements
 
@@ -41,7 +41,7 @@ your database must have three tables ( events, folders, users ), use this code :
 
 <!-- creating events table -->
 
-CREATE TABLE EVENTS(
+``` CREATE TABLE EVENTS(
 userId INT NOT NULL,
 title VARCHAR(255) DEFAULT 'no title',
 content VARCHAR(300) DEFAULT 'no content',
@@ -49,10 +49,10 @@ date\_ VARCHAR(20),
 themeColor VARCHAR(8),
 eventId VARCHAR(125),
 folderName VARCHAR(60)
-)
+) ```
 
 <!-- creating users table -->
-
+```
 CREATE TABLE users(
 ID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 Name VARCHAR(255) NOT NULL,
@@ -62,16 +62,16 @@ Avatar VARCHAR(255) DEFAULT '',
 Banner VARCHAR(255) DEFAULT '',
 isAdmin BOOLEAN DEFAULT 0
 )
-
+```
 <!-- creating folders table -->
-
+```
 CREATE TABLE folders (
 folderID INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 folderName VARCHAR(100) NOT NULL,
 folderColor VARCHAR(10) NOT NULL,
 userID VARCHAR(255) NOT NULL
 )
-
+```
 ## Project status
 
 Version: 1.0.0
