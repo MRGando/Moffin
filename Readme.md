@@ -18,10 +18,6 @@ Moffin is based on Node.js and some packages that are mentioned down below :
 - client-sessions
 - dotenv (optional)
 
-## Copyright
-
-it will be greatly appreciated if you mention developers name (Reza Kamali) on your clone version.
-
 ## How to use?
 
 1_ Clone project : ``` git clone https://github.com/MRGando/Moffin.git ```    
@@ -74,6 +70,10 @@ folderColor VARCHAR(10) NOT NULL,
 userID VARCHAR(255) NOT NULL
 )
 ```
+## Copyright
+
+it will be greatly appreciated if you mention developers name (Reza Kamali) on your clone version.    
+
 ## Project status
 
 Version: ``` 1.0.0 ```    
