@@ -41,7 +41,8 @@ your database must have three tables ( events, folders, users ), use this code :
 
 <!-- creating events table -->
 
-``` CREATE TABLE EVENTS(
+```
+CREATE TABLE EVENTS(
 userId INT NOT NULL,
 title VARCHAR(255) DEFAULT 'no title',
 content VARCHAR(300) DEFAULT 'no content',
@@ -49,7 +50,8 @@ date\_ VARCHAR(20),
 themeColor VARCHAR(8),
 eventId VARCHAR(125),
 folderName VARCHAR(60)
-) ```
+) 
+```
 
 <!-- creating users table -->
 ```
