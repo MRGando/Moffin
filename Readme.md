@@ -38,7 +38,7 @@ your database must have three tables ( events, folders, users ), use this code :
 <!-- creating events table -->
 
 ```
-CREATE TABLE EVENTS(
+CREATE TABLE events(
 userId INT NOT NULL,
 title VARCHAR(255) DEFAULT 'no title',
 content VARCHAR(300) DEFAULT 'no content',
