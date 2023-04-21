@@ -1,3 +1,6 @@
+![moffin](https://user-images.githubusercontent.com/86018280/233603154-83e7edcc-6566-4fd0-99be-6b0d2c343b65.png)
+
+
 ## About Moffin
 
 Moffin is a free open source Note site providing you a free unlimited account, you can have Notes as much as you want, you can also customize your account with changing wallpaper and your profile picture.
