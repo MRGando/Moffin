@@ -42,7 +42,7 @@ CREATE TABLE events(
 userId INT NOT NULL,
 title VARCHAR(255) DEFAULT 'no title',
 content VARCHAR(300) DEFAULT 'no content',
-date\_ VARCHAR(20),
+date_ VARCHAR(20),
 themeColor VARCHAR(8),
 eventId VARCHAR(125),
 folderName VARCHAR(60)
